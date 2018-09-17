@@ -34,10 +34,8 @@ exports.login = function(req, res, next) {
           });
           login.save();
         } });
-  res.status(200).json({
-    token: 'bearer ' + generateToken(userInfo),
-    user: userInfo
-  });
+    userInfo.token =  generateToken(userInfo);
+  res.status(200).json(userInfo);
 };
 
 
