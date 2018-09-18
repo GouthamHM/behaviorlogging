@@ -11,18 +11,34 @@
   },
   "default_locale": "en",
   "background": {
-    "page": "src/bg/background.html",
+    "scripts":[
+      "js/jquery/jquery.min.js",
+      "src/bg/background.js"
+    ],
     "persistent": true
   },
-  "page_action": {
+  "browser_action": {
     "default_icon": "icons/icon19.png",
     "default_title": "page action demo",
     "default_popup": "src/page_action/page_action.html"
   },
   "permissions": [
     "storage",
+    "cookies",
     "https://stackoverflow.com",
-    "https://localhost:8080",
-    "https://localhost:3000"
+    "http://localhost:8080/*",
+    "http://localhost:3000/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://stackoverflow.com/*",
+        "http://localhost:8080/*"
+      ],
+      "js": [
+        "js/jquery/jquery.min.js",
+        "src/tracker/index.js"
+      ]
+    }
   ]
 }

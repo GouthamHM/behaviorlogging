@@ -6,8 +6,57 @@
 
 
 //example of using a message handler from the inject scripts
-chrome.extension.onMessage.addListener(
-  function(request, sender, sendResponse) {
-  	chrome.pageAction.show(sender.tab.id);
-    sendResponse();
-  });
+chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
+    switch(request.type) {
+        case "click":
+            onClickListener(request);
+            break;
+        case "tags":
+            tagsListener(request);
+    }
+    return true;
+});
+
+var onClickListener = function(request) {
+    var post_url = "http://localhost:3000/api/logs";
+    console.log(request);
+    console.log("cookiessss");
+    chrome.cookies.get({url:"http://localhost:8080",name:"user_token"},function(cookie){
+        console.log(cookie.value);
+        $.ajax({
+            type: "POST",
+            url: post_url,
+            data: {
+                time:new Date(),
+                type: request.type,
+                class:request.class
+            },
+            headers: {
+                "Authorization": "Bearer " + cookie.value
+            }
+        });
+
+    });
+
+};
+var tagsListener = function(request) {
+    var post_url = "http://localhost:3000/api/tags";
+    console.log(request);
+    console.log("cookiessss");
+    chrome.cookies.get({url:"http://localhost:8080",name:"user_token"},function(cookie){
+        console.log(cookie.value);
+        $.ajax({
+            type: "POST",
+            url: post_url,
+            data: {
+                time:new Date(),
+                type: request.type,
+                class:request.class,
+                "tags": request.tags
+            },
+            headers: {
+                "Authorization": "Bearer " + cookie.value
+            }
+        });
+    });
+};
