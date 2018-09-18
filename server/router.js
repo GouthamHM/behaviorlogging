@@ -2,6 +2,8 @@ const AuthorizationController = require('./controllers/authentication'),
       ProfileController = require('./controllers/profile'),
       requestController = require('./controllers/requests'),
       loginController = require('./controllers/login'),
+      logController = require('./controllers/logs'),
+      tagController = require('./controllers/tags'),
       express = require('express'),
       paassportService = require('./config/passport'),
       passport = require('passport');
@@ -15,6 +17,8 @@ module.exports = function(app){
         authRoutes = express.Router();
         requestRoutes = express.Router();
         loginRoutes = express.Router();
+        logRoutes = express.Router();
+        tagRoutes = express.Router();
   apiRoutes.use('/auth',authRoutes);
 
   authRoutes.post('/register',AuthorizationController.register);
@@ -22,9 +26,15 @@ module.exports = function(app){
   userRoutes.get('/:userId', requirejwtAuth, ProfileController.viewProfile);
   requestRoutes.post('/',requirejwtAuth,requestController.addRequest);
   loginRoutes.get('/',requirejwtAuth,loginController.getLogins);
+  logRoutes.get('/',requirejwtAuth,logController.getLogs);
+  logRoutes.post('/',requirejwtAuth,logController.addLog);
+  tagRoutes.post('/',requirejwtAuth,tagController.addTag);
+  tagRoutes.get('/',requirejwtAuth,tagController.getTags);
 
   apiRoutes.use('/user', userRoutes);
   apiRoutes.use('/request',requestRoutes);
   apiRoutes.use('/logins',loginRoutes);
+  apiRoutes.use('/logs',logRoutes);
+  apiRoutes.use('/tags',tagRoutes);
   app.use('/api',apiRoutes);
 };
