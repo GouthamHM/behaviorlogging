@@ -1,4 +1,5 @@
 import config from 'config';
+import Cookies from "universal-cookie";
 import { authHeader } from '../_helpers';
 
 export const userService = {
@@ -26,6 +27,8 @@ function login(email, password) {
             // login successful if there's a jwt token in the response
             if (user.token) {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
+                const cookies = new Cookies();
+                cookies.set("user_token",user.token,{path:'http://localhost:8080/'});
                 localStorage.setItem('user', JSON.stringify(user));
             }
 
