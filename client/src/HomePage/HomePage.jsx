@@ -1,9 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import { Router, Route } from 'react-router-dom';
 import { userActions } from '../_actions';
-
+import { LineChart, Line } from 'recharts';
+import Plot from 'react-plotly.js';
+import {HeatMap} from  '../HeatMap';
+import  {WordCloud} from '../WordCloud';
+import  {BarChart} from '../BarChart';
+import  {Vis} from '../Vis';
 class TimeDispaly extends  React.Component{
     constructor(props) {
         super(props);
@@ -21,6 +26,7 @@ class TimeDispaly extends  React.Component{
     }
 
 }
+
 class HomePage extends React.Component {
     componentDidMount() {
         this.props.dispatch(userActions.getAll());
@@ -29,7 +35,6 @@ class HomePage extends React.Component {
     handleDeleteUser(id) {
         return (e) => this.props.dispatch(userActions.delete(id));
     }
-
     render() {
         const { user, users } = this.props;
         return (
@@ -51,6 +56,9 @@ class HomePage extends React.Component {
                 }
                 <p>
                     <Link to="/login">Logout</Link>
+                </p>
+                <p>
+                    <Link to="/vis">Vis</Link>
                 </p>
             </div>
         );

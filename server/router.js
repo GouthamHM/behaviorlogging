@@ -4,6 +4,7 @@ const AuthorizationController = require('./controllers/authentication'),
       loginController = require('./controllers/login'),
       logController = require('./controllers/logs'),
       tagController = require('./controllers/tags'),
+      viewController = require('./controllers/views'),
       express = require('express'),
       paassportService = require('./config/passport'),
       passport = require('passport');
@@ -19,6 +20,7 @@ module.exports = function(app){
         loginRoutes = express.Router();
         logRoutes = express.Router();
         tagRoutes = express.Router();
+        viewRoutes = express.Router();
   apiRoutes.use('/auth',authRoutes);
 
   authRoutes.post('/register',AuthorizationController.register);
@@ -30,11 +32,13 @@ module.exports = function(app){
   logRoutes.post('/',requirejwtAuth,logController.addLog);
   tagRoutes.post('/',requirejwtAuth,tagController.addTag);
   tagRoutes.get('/',requirejwtAuth,tagController.getTags);
+   viewRoutes.get('/',requirejwtAuth,viewController.getViews);
 
   apiRoutes.use('/user', userRoutes);
   apiRoutes.use('/request',requestRoutes);
   apiRoutes.use('/logins',loginRoutes);
   apiRoutes.use('/logs',logRoutes);
   apiRoutes.use('/tags',tagRoutes);
+  apiRoutes.use('/views',tagRoutes);
   app.use('/api',apiRoutes);
 };
