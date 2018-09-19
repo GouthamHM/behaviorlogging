@@ -5,6 +5,7 @@ const AuthorizationController = require('./controllers/authentication'),
       logController = require('./controllers/logs'),
       tagController = require('./controllers/tags'),
       viewController = require('./controllers/views'),
+    votesController = require('./controllers/votes'),
       express = require('express'),
       paassportService = require('./config/passport'),
       passport = require('passport');
@@ -21,6 +22,7 @@ module.exports = function(app){
         logRoutes = express.Router();
         tagRoutes = express.Router();
         viewRoutes = express.Router();
+        voteRoutes = express.Router();
   apiRoutes.use('/auth',authRoutes);
 
   authRoutes.post('/register',AuthorizationController.register);
@@ -33,12 +35,15 @@ module.exports = function(app){
   tagRoutes.post('/',requirejwtAuth,tagController.addTag);
   tagRoutes.get('/',requirejwtAuth,tagController.getTags);
    viewRoutes.get('/',requirejwtAuth,viewController.getViews);
+    voteRoutes.post('/',requirejwtAuth,votesController.addVote);
+    voteRoutes.get('/',requirejwtAuth,votesController.getUpVotes);
 
   apiRoutes.use('/user', userRoutes);
   apiRoutes.use('/request',requestRoutes);
   apiRoutes.use('/logins',loginRoutes);
   apiRoutes.use('/logs',logRoutes);
   apiRoutes.use('/tags',tagRoutes);
-  apiRoutes.use('/views',tagRoutes);
+  apiRoutes.use('/views',viewRoutes);
+    apiRoutes.use('/votes',voteRoutes);
   app.use('/api',apiRoutes);
 };

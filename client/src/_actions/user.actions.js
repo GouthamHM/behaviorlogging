@@ -9,6 +9,8 @@ export const userActions = {
     register,
     getAll,
     getAllTags,
+    getAllViews,
+    getAllVotes,
     delete: _delete
 };
 
@@ -93,6 +95,36 @@ function getAllTags() {
     function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
 }
 
+function getAllViews() {
+    return dispatch => {
+        dispatch(request());
+
+        userService.getAllViews()
+            .then(
+                views => dispatch(success(views)),
+                error => dispatch(failure(error.toString()))
+            );
+    };
+    debugger;
+    function request() { return { type: userConstants.GETALL_REQUEST } }
+    function success(views) { return { type: userConstants.GETALL_SUCCESS, views } }
+    function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
+}
+function getAllVotes() {
+    return dispatch => {
+        dispatch(request());
+
+        userService.getAllVotes()
+            .then(
+                votes => dispatch(success(votes)),
+                error => dispatch(failure(error.toString()))
+            );
+    };
+    debugger;
+    function request() { return { type: userConstants.GETALL_REQUEST } }
+    function success(votes) { return { type: userConstants.GETALL_SUCCESS, votes } }
+    function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
+}
 // prefixed function name with underscore because delete is a reserved word in javascript
 function _delete(id) {
     return dispatch => {

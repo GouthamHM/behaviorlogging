@@ -19,8 +19,22 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
 
 var onClickListener = function(request) {
     var post_url = "http://localhost:3000/api/logs";
+    switch(request.class) {
+        case "questionclicked":
+            post_url = "http://localhost:3000/api/logs";
+            break;
+        case "upvoteclicked":
+            post_url = "http://localhost:3000/api/votes";
+            break;
+        case "downvoteclicked":
+            post_url = "http://localhost:3000/api/votes";
+            break;
+    }
+
     console.log(request);
     console.log("cookiessss");
+    var date = new Date();
+    var day = date.getDate();
     chrome.cookies.get({url:"http://localhost:8080",name:"user_token"},function(cookie){
         console.log(cookie.value);
         $.ajax({
@@ -28,6 +42,7 @@ var onClickListener = function(request) {
             url: post_url,
             data: {
                 time:new Date(),
+                day: day,
                 type: request.type,
                 class:request.class
             },

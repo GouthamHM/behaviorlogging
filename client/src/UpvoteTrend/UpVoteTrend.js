@@ -1,5 +1,4 @@
 import React from 'react';
-import Plot from 'react-plotly.js';
 import { connect } from 'react-redux';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 import {userActions} from "../_actions";
@@ -13,7 +12,7 @@ const data = [
     {name: 'Sunday', views: 3490},
 ];
 
-class WordCloud extends React.Component{
+class UpVoteTrend extends React.Component{
     componentDidMount() {
         this.props.dispatch(userActions.getAllVotes());
     }
@@ -43,5 +42,5 @@ function mapStateToProps(state) {
     };
 }
 
-const connectedWordCloud = connect(mapStateToProps)(WordCloud);
-export { connectedWordCloud as WordCloud };
+const connectedUpVoteTrend = connect(mapStateToProps)(UpVoteTrend);
+export { connectedUpVoteTrend as UpVoteTrend };

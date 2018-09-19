@@ -11,8 +11,7 @@ class Vis extends React.Component {
             <div>
 
                 <HeatMap />
-            <BarChart/>
-        <WordCloud/>
+
     </div>
         );
     }

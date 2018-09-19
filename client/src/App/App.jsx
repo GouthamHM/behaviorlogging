@@ -9,7 +9,8 @@ import { HomePage } from '../HomePage';
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
 import {Vis} from '../Vis';
-import {HeatMap} from '../HeatMap'
+import {HeatMap} from '../HeatMap';
+import {UpvoteTrend} from '../UpvoteTrend'
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -35,8 +36,8 @@ class App extends React.Component {
                                 <PrivateRoute exact path="/" component={HomePage} />
                                 <Route path="/login" component={LoginPage} />
                                 <Route path="/register" component={RegisterPage} />
-                                <Route path="/vis" component={Vis} />
-
+                                <Route path="/weeklyheatmap" component={HeatMap} />
+                                <Route path="/upvotetrend" component={UpvoteTrend}/>
                             </div>
                         </Router>
                     </div>

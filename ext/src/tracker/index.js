@@ -11,7 +11,7 @@ chrome.extension.sendMessage({}, function(response) {
         }
     }, 5);
 });
-//Find all Tags
+//Find all Tags and view count
 $(window).load(function () {
     var tags_list = [];
     $('.post-tag.js-gps-track').each(function(ele){
@@ -32,4 +32,21 @@ $(".question-hyperlink").click(function (event) {
        })
    }
 });
-//
+//Logging Upvotes
+$(".vote-up-off").click(function (event) {
+    if (event.button==0){
+        chrome.extension.sendMessage({
+            type:"click",
+            class: "upvoteclicked",
+        })
+    }
+});
+//Logging Downvotes
+$(".vote-down-off").click(function (event) {
+    if (event.button==0){
+        chrome.extension.sendMessage({
+            type:"click",
+            class: "downvoteclicked",
+        })
+    }
+});

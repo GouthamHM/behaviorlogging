@@ -8,6 +8,8 @@ export const userService = {
     register,
     getAll,
     getAllTags,
+    getAllViews,
+    getAllVotes,
     getById,
     update,
     delete: _delete
@@ -59,6 +61,22 @@ function getAllTags() {
     };
 
     return fetch(`${config.apiUrl}/tags`, requestOptions).then(handleResponse);
+}
+function getAllViews() {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    };
+
+    return fetch(`${config.apiUrl}/views`, requestOptions).then(handleResponse);
+}
+function getAllVotes() {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    };
+
+    return fetch(`${config.apiUrl}/votes`, requestOptions).then(handleResponse);
 }
 function getById(id) {
     const requestOptions = {

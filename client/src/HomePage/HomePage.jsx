@@ -58,8 +58,10 @@ class HomePage extends React.Component {
                     <Link to="/login">Logout</Link>
                 </p>
                 <p>
-                    <Link to="/vis">Vis</Link>
+                    <Link to="/upvotetrend">UpvoteTrend</Link>
                 </p>
+                <HeatMap/>
+
             </div>
         );
     }
