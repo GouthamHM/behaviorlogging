@@ -21,7 +21,6 @@ exports.getViews = function(req,res,next){
             var day_index = data.x.indexOf(tag.day);
             var y_index = data.y.indexOf(tag.phase);
             data.z[y_index][day_index] = tag.count
-            console.log(y_index, day_index, data.z[y_index][day_index])
             len =len-1
         });
         if (len==0){

@@ -31,8 +31,7 @@
   "content_scripts": [
     {
       "matches": [
-        "https://stackoverflow.com/*",
-        "http://localhost:8080/*"
+        "https://stackoverflow.com/*"
       ],
       "js": [
         "js/jquery/jquery.min.js",

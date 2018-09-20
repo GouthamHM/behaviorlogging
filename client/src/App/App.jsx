@@ -8,7 +8,6 @@ import { PrivateRoute } from '../_components';
 import { HomePage } from '../HomePage';
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
-import {Vis} from '../Vis';
 import {HeatMap} from '../HeatMap';
 import {UpVoteTrend} from '../UpvoteTrend';
 import {BarChart} from '../BarChart'

@@ -44,10 +44,10 @@ exports.addTag = function (req,res,next) {
         var date = new  Date();
         var current_hour = date.getHours();
         var phase = '';
-        if (5<current_hour<12){
+        if (5<current_hour && current_hour<12){
             phase= "Morning"
-        }else if (12<current_hour<5){
-            phsae = 'Afternoon'
+        }else if (12<current_hour && current_hour<17){
+            phase = 'Afternoon'
         }else{
             phase = 'Evening'
         }
@@ -77,19 +77,16 @@ exports.addTag = function (req,res,next) {
                 day_str = 'Saturday';
                 break;
         }
-        console.log(day_str);
         View.findOne({user: req.user, day:day_str , phase:phase}, function (err, view) {
             if (err) {
                 console.log("error: not found");
                 res.status(500).json({"status": false})
             }
             if (view) {
-                console.log('inside2');
                 view.count += 1;
                 view.save();
             }
             else{
-                console.log('inside');
                 var newView = new View({
                     day: day_str,
                     count: 1,

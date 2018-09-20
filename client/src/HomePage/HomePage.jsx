@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { userActions } from '../_actions';
+import { Header } from '../Header/Header';
 class TimeDispaly extends  React.Component{
     constructor(props) {
         super(props);
@@ -31,7 +32,10 @@ class HomePage extends React.Component {
     render() {
         const { user, users } = this.props;
         return (
-            <div className="col-md-6 col-md-offset-3">
+            <div>
+            <Header/>
+            <div className="col-md-12">
+            
                 <h1>Hi {user.firstName}!</h1>
                 <p>Welcome! </p>
                 <h3>Your Login History: </h3>
@@ -47,19 +51,15 @@ class HomePage extends React.Component {
                         )}
                     </ul>
                 }
-                <p>
-                    <Link to="/login">Logout</Link>
-                </p>
-                <p>
-                    <Link to="/upvotetrend">UpvoteTrend</Link>
-                    
-                    <Link to='/weeklyheatmap'>Heat Map</Link>
-                    <br></br>
-                        <Link to='/tagsviz'>Tags</Link>
-
-                </p>
-
-
+                <h3>Events Logged:</h3>
+                <ul>
+                    <li>Tags(Topics) you visited. <ul><li>Reasons: To know what topics you would be more interested in.</li></ul></li>
+                    <li>Number of visits to Stack Overflow.<ul><li> Reasons: To find patterns in your work time and at ehat time are most stuck.</li></ul></li>
+                    <li>Number of Upvotes.<ul><li> Reason: Apperciation to pay to fellow community.</li></ul></li>
+                    <li>Number of Downvotes. <ul><li>Reason: to filter out bad questions and answers.</li></ul> </li>
+                    <li>Questions clicked. <ul><li>Reason: To understand what questions which are dispalyed as a suggestion is important to you.</li></ul> </li>
+                </ul>
+            </div>
             </div>
         );
     }

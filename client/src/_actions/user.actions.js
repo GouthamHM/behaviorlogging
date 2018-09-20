@@ -89,7 +89,6 @@ function getAllTags() {
                 error => dispatch(failure(error.toString()))
             );
     };
-    debugger;
     function request() { return { type: userConstants.GETALL_REQUEST } }
     function success(tags) { return { type: userConstants.GETALL_SUCCESS, tags } }
     function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
@@ -105,7 +104,6 @@ function getAllViews() {
                 error => dispatch(failure(error.toString()))
             );
     };
-    debugger;
     function request() { return { type: userConstants.GETALL_REQUEST } }
     function success(views) { return { type: userConstants.GETALL_SUCCESS, views } }
     function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
@@ -120,7 +118,6 @@ function getAllVotes() {
                 error => dispatch(failure(error.toString()))
             );
     };
-    debugger;
     function request() { return { type: userConstants.GETALL_REQUEST } }
     function success(votes) { return { type: userConstants.GETALL_SUCCESS, votes } }
     function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }

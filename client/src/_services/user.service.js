@@ -25,8 +25,6 @@ function login(email, password) {
     return fetch(`${config.apiUrl}/auth/login`, requestOptions)
         .then(handleResponse)
         .then(user => {
-            debugger;
-            console.log(user);
             // login successful if there's a jwt token in the response
             if (user.token) {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -118,8 +116,6 @@ function _delete(id) {
 }
 
 function handleResponse(response) {
-    debugger;
-
     return response.text().then(text => {
         if (text === "Unauthorized") {
             const data = {error: "UnAuthorized"};

@@ -5,7 +5,6 @@ exports.getLogs = function(req,res,next){
     const userId = req.params.userId;
     User.findById(userId, (err, user) => {
         Log.find({user: req.user}).populate({path: 'user'}).exec(function (err, logins) {
-            console.log(logins);
             res.status(200).send(logins);
         });
     });
