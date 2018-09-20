@@ -1,5 +1,5 @@
 # Behavior Logging
-Web app built using Express and Node which logs user behavior and presents social visualizations. 
+Chrome extension and web app built using Express and Node which logs user behavior in Stackoverflow website and presents social visualizations. 
 Instructions to satart the app.
 1. Starting Server
   ->. $ cd server
@@ -24,6 +24,6 @@ Requirements:
 1. Chrome or Chrmomium browser
 2. NodeJS 8.10.0 or above
 3. MongoDB
-4. npm 3.5.2
+4. npm 3.5.2page action demo
 
 Happy Coding!
