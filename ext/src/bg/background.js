@@ -31,12 +31,9 @@ var onClickListener = function(request) {
             break;
     }
 
-    console.log(request);
-    console.log("cookiessss");
     var date = new Date();
     var day = date.getDate();
     chrome.cookies.get({url:"http://localhost:8080",name:"user_token"},function(cookie){
-        console.log(cookie.value);
         $.ajax({
             type: "POST",
             url: post_url,
@@ -56,10 +53,7 @@ var onClickListener = function(request) {
 };
 var tagsListener = function(request) {
     var post_url = "http://localhost:3000/api/tags";
-    console.log(request);
-    console.log("cookiessss");
     chrome.cookies.get({url:"http://localhost:8080",name:"user_token"},function(cookie){
-        console.log(cookie.value);
         $.ajax({
             type: "POST",
             url: post_url,
