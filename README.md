@@ -6,7 +6,7 @@ Instruction sto satart the app.
   ->. $ npm install
   ->. $ npm start
 2. Starting client
-  ->. $ cd slienr
+  ->. $ cd client
   ->. $ npm install
   ->. $ npm start
 3. Installing extenion <br />
