@@ -1,6 +1,6 @@
 # Behavior Logging
-Web app built using Express and Node which logs user behavior and represents in social visualizations. 
-Instruction sto satart the app.
+Web app built using Express and Node which logs user behavior and presents social visualizations. 
+Instructions to satart the app.
 1. Starting Server
   ->. $ cd server
   ->. $ npm install
