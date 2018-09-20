@@ -9,7 +9,7 @@ Instruction sto satart the app.
   ->. $ cd slienr
   ->. $ npm install
   ->. $ npm start
-3. Installing extenion
+3. Installing extenion <br />
       a. Open chrome://extensions/ in Chrome/Chromium browser <br />
       b. Switch on Developer Mode (Right top corner) <br />
       c. Pull the ext folder to this tab <br />
