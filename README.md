@@ -10,9 +10,9 @@ Instruction sto satart the app.
   ->. $ npm install
   ->. $ npm start
 3. Installing extenion
-    a. Open chrome://extensions/ in Chrome/Chromium browser
-    b. Switch on Developer Mode (Right top corner)
-    c. Pull the ext folder to this tab
+      a. Open chrome://extensions/ in Chrome/Chromium browser <br />
+      b. Switch on Developer Mode (Right top corner) <br />
+      c. Pull the ext folder to this tab <br />
 
 Start using the app: URL : localhost:8080
 1. Create an account
