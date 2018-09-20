@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 import {userActions} from "../_actions";
+import { Link } from 'react-router-dom';
 const data = [
     {name: 'Monday', views: 4000},
     {name: 'Tuesday', views: 3000},
@@ -30,6 +31,9 @@ class UpVoteTrend extends React.Component{
                     <Tooltip/>
                 </LineChart>
                 }
+                <p>
+                    <Link to='/'>Home Page</Link>
+                </p>
             </div>);
     }
 }

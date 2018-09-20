@@ -1,14 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Router, Route } from 'react-router-dom';
 import { userActions } from '../_actions';
-import { LineChart, Line } from 'recharts';
-import Plot from 'react-plotly.js';
-import {HeatMap} from  '../HeatMap';
-import  {WordCloud} from '../WordCloud';
-import  {BarChart} from '../BarChart';
-import  {Vis} from '../Vis';
 class TimeDispaly extends  React.Component{
     constructor(props) {
         super(props);
@@ -59,8 +52,13 @@ class HomePage extends React.Component {
                 </p>
                 <p>
                     <Link to="/upvotetrend">UpvoteTrend</Link>
+                    
+                    <Link to='/weeklyheatmap'>Heat Map</Link>
+                    <br></br>
+                        <Link to='/tagsviz'>Tags</Link>
+
                 </p>
-                <HeatMap/>
+
 
             </div>
         );
@@ -68,11 +66,11 @@ class HomePage extends React.Component {
 }
 
 function mapStateToProps(state) {
-    const { users, authentication } = state;
+    const { users,authentication } = state;
     const { user } = authentication;
     return {
         user,
-        users
+        users,
     };
 }
 

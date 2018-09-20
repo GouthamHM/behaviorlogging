@@ -10,7 +10,8 @@ import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
 import {Vis} from '../Vis';
 import {HeatMap} from '../HeatMap';
-import {UpvoteTrend} from '../UpvoteTrend'
+import {UpVoteTrend} from '../UpvoteTrend';
+import {BarChart} from '../BarChart'
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -37,7 +38,8 @@ class App extends React.Component {
                                 <Route path="/login" component={LoginPage} />
                                 <Route path="/register" component={RegisterPage} />
                                 <Route path="/weeklyheatmap" component={HeatMap} />
-                                <Route path="/upvotetrend" component={UpvoteTrend}/>
+                                <Route path="/upvotetrend" component={UpVoteTrend}/>
+                                <Route path="/tagsviz" component={BarChart}/>
                             </div>
                         </Router>
                     </div>
