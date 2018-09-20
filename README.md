@@ -2,13 +2,13 @@
 Web app built using Express and Node which logs user behavior and represents in social visualizations. 
 Instruction sto satart the app.
 1. Starting Server
-  a. $ cd server
-  b. $ npm install
-  c. $ npm start
+  ->. $ cd server
+  ->. $ npm install
+  ->. $ npm start
 2. Starting client
-  a. $ cd slienr
-  b. $ npm install
-  c. $ npm start
+  ->. $ cd slienr
+  ->. $ npm install
+  ->. $ npm start
 3. Installing extenion
   a. Open chrome://extensions/ in Chrome/Chromium browser
   b. Switch on Developer Mode (Right top corner)
