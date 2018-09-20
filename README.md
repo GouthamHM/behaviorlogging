@@ -24,6 +24,6 @@ Requirements:
 1. Chrome or Chrmomium browser
 2. NodeJS 8.10.0 or above
 3. MongoDB
-4. npm 3.5.2page action demo
+4. npm 3.5.2
 
 Happy Coding!
